@@ -2,23 +2,42 @@ import React from 'react';
 import './bootstrap.min.css';
 import './bootstrap.min-lux.css';
 
-const game =(props)=> {
+const game = (props) => {
+
     return (
         <div className="container">
             <table className="table table-hover">
-                
-                <tbody  className="table-dark text-left">
+
+                <tbody className="table-secondary">
                     <tr className="table-active">
-                        <td>
-                            {props.game}
-                        </td> 
-                        <td>
-                            {props.price}
-                        </td> 
-                    </tr> 
+                        <div className="container col-md-3">
+                            <td className="text-left" >
+                              <h3 className="text-primary">  {props.game}</h3>
+                            </td>
+                        </div>
+                        <div className="container col-md-3">
+                            <td className="text-left" >
+                                
+                                <img src={props.img} className="img-thumbnail btn-warning"/>
+                            </td>
+                        </div>
+                        <div className="container col-md-3">
+                            <td>
+                            <h3 className="text-primary">  {props.price}$ </h3>
+                            </td>
+                        </div>
+                        <div className="container col-md-3">
+                            <td>
+                                <button className="btn btn-warning text-primary" onClick={props.changed}><span className="glyphicon glyphicon-shopping-cart"></span></button>
+                            </td>
+                            <td>
+                                <button className="btn btn-warning text-primary">Game Review</button>
+                            </td>
+                        </div>
+                    </tr>
                 </tbody>
-                
-            </table> 
+
+            </table>
 
         </div>
 
@@ -26,6 +45,6 @@ const game =(props)=> {
     )
 
 
-}; 
+};
 
 export default game; 
