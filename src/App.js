@@ -7,9 +7,12 @@ import Items from './Items'
 
 
 class App extends Component {
-  addCart = () => {
+  addCart = (price) => {
+    
+
     this.setState({
       count: this.state.count + 1,
+      price:this.state.price+price
       
     })
   }
@@ -28,7 +31,8 @@ class App extends Component {
       { key: 10, game: "Last Guardian", price: 5, img: './images/lastguardian.jpg' },
 
     ],
-    count:0
+    count:0, 
+    price:0
   }
 
 
@@ -57,7 +61,7 @@ class App extends Component {
     //Elements to return 
     return (
       <div className="App">
-        <Header counter={this.state.count} price={25} />
+        <Header counter={this.state.count} price={this.state.price} />
         {items}
 
       </div>

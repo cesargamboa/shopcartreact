@@ -28,7 +28,7 @@ const game = (props) => {
                         </div>
                         <div className="container col-md-3">
                             <td>
-                                <button className="btn btn-warning text-primary" onClick={props.changed}><span className="glyphicon glyphicon-shopping-cart"></span></button>
+                                <button className="btn btn-warning text-primary" onClick={()=>props.changed(props.price)}><span className="glyphicon glyphicon-shopping-cart"></span></button>
                             </td>
                             <td>
                                 <button className="btn btn-warning text-primary">Game Review</button>
