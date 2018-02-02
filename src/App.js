@@ -57,7 +57,7 @@ class App extends Component {
     //Elements to return 
     return (
       <div className="App">
-        <Header counter={this.state.count} />
+        <Header counter={this.state.count} price={25} />
         {items}
 
       </div>
