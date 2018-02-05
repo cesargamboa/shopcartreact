@@ -12,23 +12,23 @@ const game = (props) => {
                     <tr className="table-active">
                         <div className="container col-md-3">
                             <td className="text-left" >
-                              <h3 className="text-primary">  {props.game}</h3>
+                                <h3 className="text-primary">  {props.game}</h3>
                             </td>
                         </div>
                         <div className="container col-md-3">
                             <td className="text-left" >
-                                
-                                <img src={props.img} className="img-thumbnail btn-warning"/>
+
+                                <img src={props.img} className="img-thumbnail btn-warning" />
                             </td>
                         </div>
                         <div className="container col-md-3">
                             <td>
-                            <h3 className="text-primary">  {props.price}$ </h3>
+                                <h3 className="text-primary">  {props.price}$ </h3>
                             </td>
                         </div>
                         <div className="container col-md-3">
                             <td>
-                                <button className="btn btn-warning text-primary" onClick={()=>props.changed(props.price)}><span className="glyphicon glyphicon-shopping-cart"></span></button>
+                                <button className="btn btn-warning text-primary" onClick={() => props.changed(props.price, props.game)}><span className="glyphicon glyphicon-shopping-cart"></span></button>
                             </td>
                             <td>
                                 <button className="btn btn-warning text-primary">Game Review</button>

@@ -6,7 +6,7 @@ import cesar from './cesar.png';
 const header = (props) => {
     return (
         <div className="container col-md-12">
-            
+
             <nav class="navbar navbar-expand-lg navbar-primary bg-secondary">
                 <a class="navbar-brand"><img src={cesar} className="img-thumbnail" /></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
@@ -28,17 +28,19 @@ const header = (props) => {
                     </ul>
                     <form class="form-inline my-2 my-lg-0">
                         <div>
-                            <h1 className="bg-secondary"><span className="glyphicon glyphicon-briefcase  btn-primary btn-lg">Bag</span></h1>
+                            <h1 className="bg-secondary"><span className="glyphicon glyphicon-briefcase  btn-primary btn-lg" onClick={props.clicked}>Bag</span></h1>
                         </div>
                         <table>
                             <th>Items:</th><td><h4 class="badge-pill badge-warning">{props.counter}</h4></td>
-                            <tr><td>Subtotal</td><td><h4 class="badge-pill badge-warning">{props.price}</h4></td></tr>
+                            <tr><td>Subtotal</td><td><h4 class="badge-pill badge-warning">{props.price} </h4></td></tr>
                         </table>
                         <input class="form-control mr-sm-2" type="text" placeholder="Search" />
                         <button class="btn btn-primary my-2 my-sm-0" type="submit">Search</button>
                     </form>
                 </div>
             </nav>
+
+
         </div>
 
 

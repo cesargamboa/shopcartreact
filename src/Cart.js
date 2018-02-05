@@ -1,0 +1,37 @@
+import React from 'react';
+import './bootstrap.min.css';
+import './bootstrap.min-lux.css';
+
+const cart = (props) => {
+  return (
+    <div>
+      <table class="table table-hover table-warning">
+
+        <tbody>
+          <tr class="table-active">
+            <th scope="row"><h1>Summary</h1></th>
+
+            <td><h3>Total Price</h3></td>
+
+          </tr>
+          <tr>
+            <td className="col-md-1">{props.newCart}</td>
+            <td>{props.price}$</td>
+          </tr>
+
+
+        </tbody>
+      </table>
+
+      <button className="btn btn-primary">Confirm Payment</button>
+
+      <button className="btn btn-secondary" onClick={props.click}>Clear Cart</button>
+    </div>
+  );
+
+
+
+
+}
+
+export default cart; 
