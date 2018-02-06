@@ -2,14 +2,18 @@ import React, { Component } from 'react';
 import Header from './Header';
 import Cart from './Cart'
 import './App.css';
-import Items from './Items'
+import News from'./pages/News'
+import Releases from'./pages/Releases'
+import Items from './Items';
+import {Link} from 'react-router';
+import {Route, BrowserRouter, Switch} from 'react-router-dom'
 
 
 class App extends Component {
   addCart = (price, game) => {
 
     let newCartCopy = [game + " "];
-
+//Change the state
     this.setState({
       count: this.state.count + 1,
       price: this.state.price + price,
@@ -54,24 +58,7 @@ class App extends Component {
     let showed = null;
     let items = null;
 
-    items = (
-      //Dinamic list of the objects 
-
-      <div>
-
-        {this.state.items.map((items, key) => {
-          return <Items
-
-            game={items.game}
-            price={items.price}
-            img={items.img}
-            key={items.key}
-            changed={this.addCart} />
-
-        })}
-
-      </div>
-    );
+  
 
     items = (
       //Dinamic list of the objects 
@@ -92,22 +79,33 @@ class App extends Component {
       </div>
     );
     //show cart
-    if (this.state.showCart) {
+  
       showed = (
         <div className="container col-md-8 offset-md-2 card border-warning mb-3">
           <Cart newCart={this.state.newCart} price={this.state.price} click={this.clearCart} />
         </div>
       )
 
-    }
+    
     //Elements to return 
     return (
       <div className="App">
 
         <Header counter={this.state.count} price={this.state.price} clicked={this.toggleCart
         } />
+      <Switch>
+        
+        <Route path="/bag">
         {showed}
+        </Route> 
+        <Route exact path="/" >
         {items}
+        
+        </Route>
+        <Route path="/news">{News}</Route> 
+        <Route path="/releases" component={Releases}/>
+      
+      </Switch> 
 
       </div>
     );
