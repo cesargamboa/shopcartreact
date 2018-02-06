@@ -33,7 +33,7 @@ const header = (props) => {
                         </div>
                         <table>
                             <th>Items:</th><td><h4 class="badge-pill badge-warning">{props.counter}</h4></td>
-                            <tr><td>Subtotal</td><td><h4 class="badge-pill badge-warning">{props.price} </h4></td></tr>
+                            <tr><td>Subtotal</td><td><h4 class="badge-pill badge-warning">{props.price}$ </h4></td></tr>
                         </table>
                         <input class="form-control mr-sm-2" type="text" placeholder="Search" />
                         <button class="btn btn-primary my-2 my-sm-0" type="submit">Search</button>
