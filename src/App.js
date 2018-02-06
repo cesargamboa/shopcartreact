@@ -87,12 +87,13 @@ class App extends Component {
       )
 
     
-    //Elements to return 
+    //Elements to return and Routing 
     return (
       <div className="App">
 
         <Header counter={this.state.count} price={this.state.price} clicked={this.toggleCart
         } />
+    
       <Switch>
         
         <Route path="/bag">
