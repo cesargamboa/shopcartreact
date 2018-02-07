@@ -1,6 +1,6 @@
 import React from 'react';
-import './bootstrap.min.css';
-import './bootstrap.min-lux.css';
+import '../css/bootstrap.min.css';
+import '../css/bootstrap.min-lux.css';
 
 const cart = (props) => {
   return (

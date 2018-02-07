@@ -1,19 +1,21 @@
 import React, { Component } from 'react';
-import Header from './Header';
-import Cart from './Cart'
-import './App.css';
-import News from'./pages/News'
-import Releases from'./pages/Releases'
-import Items from './Items';
-import {Link} from 'react-router';
-import {Route, BrowserRouter, Switch} from 'react-router-dom'
+import Header from './components/Header';
+import Cart from './components/Cart'
 
+import News from './pages/News'
+import Releases from './pages/Releases'
+import Items from './components/Items';
+//import { Link } from 'react-router';
+import { Route, Switch } from 'react-router-dom'
+//import { connect } from 'react-redux';
+import objList from "./components/list"
 
+//container 
 class App extends Component {
   addCart = (price, game) => {
 
     let newCartCopy = [game + " "];
-//Change the state
+    //Change the state
     this.setState({
       count: this.state.count + 1,
       price: this.state.price + price,
@@ -29,36 +31,20 @@ class App extends Component {
       newCart: [],
     })
   }
-  state = {
-    //Array of the objects that we want to use 
-    items: [
-      { key: 1, game: "Mass Effect", price: 29, img: './images/masseffect.jpg' },
-      { key: 2, game: "God of War 4", price: 39, img: './images/godofwar4.jpg' },
-      { key: 3, game: "Fallen", price: 19, img: './images/fallen.jpg' },
-      { key: 4, game: "Watch Dogs 2", price: 35, img: './images/watchdogs.jpg' },
-      { key: 5, game: "Resident Evil", price: 24, img: './images/residentevil.jpg' },
-      { key: 6, game: "Battle Field", price: 15, img: './images/battlefield.jpg' },
-      { key: 7, game: "UFC", price: 21, img: './images/ufc.jpg' },
-      { key: 8, game: "Okami", price: 20, img: './images/okami.jpg' },
-      { key: 9, game: "Omen of sorrow", price: 21, img: './images/omenofsorrow.jpg' },
-      { key: 10, game: "Last Guardian", price: 5, img: './images/lastguardian.jpg' },
-    ],
-    count: 0,
-    price: 0,
-    newCart: [],
-    showCart: false
-  }
+  state = objList;
   toggleCart = () => {
     const doesShow = this.state.showCart;
     this.setState({ showCart: !doesShow });
   }
   //render objects 
+
   render() {
+
 
     let showed = null;
     let items = null;
 
-  
+
 
     items = (
       //Dinamic list of the objects 
@@ -79,39 +65,51 @@ class App extends Component {
       </div>
     );
     //show cart
-  
-      showed = (
-        <div className="container col-md-8 offset-md-2 card border-warning mb-3">
-          <Cart newCart={this.state.newCart} price={this.state.price} click={this.clearCart} />
-        </div>
-      )
 
-    
+    showed = (
+      <div className="container col-md-8 offset-md-2 card border-warning mb-3">
+        <Cart newCart={this.state.newCart} price={this.state.price} click={this.clearCart} />
+      </div>
+    )
+
+
     //Elements to return and Routing 
     return (
-      <div className="App">
+      <div>
 
         <Header counter={this.state.count} price={this.state.price} clicked={this.toggleCart
         } />
-    
-      <Switch>
-        
-        <Route path="/bag">
-        {showed}
-        </Route> 
-        <Route exact path="/" >
-        {items}
-        
-        </Route>
-        <Route path="/news">{News}</Route> 
-        <Route path="/releases" component={Releases}/>
-      
-      </Switch> 
+
+        <Switch>
+
+          <Route path="/bag">
+            {showed}
+          </Route>
+          <Route exact path="/" >
+            {items}
+
+          </Route>
+          <Route path="/news">{News}</Route>
+          <Route path="/releases" component={Releases} />
+
+        </Switch>
 
       </div>
     );
 
   }
 }
+/*const mapStateToProps = state => {
+  return {
+    game: state.game,
+    price: state.price,
+    key: state.key,
+    count: state.count,
+    newCart: state.newCart,
+    showCart: state.showCart
+
+  
+
+}*/
 
 export default App;

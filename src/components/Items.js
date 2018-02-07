@@ -1,6 +1,6 @@
 import React from 'react';
-import './bootstrap.min.css';
-import './bootstrap.min-lux.css';
+import '../css/bootstrap.min.css';
+import '../css/bootstrap.min-lux.css';
 
 const game = (props) => {
 
@@ -18,7 +18,7 @@ const game = (props) => {
                         <div className="container col-md-3">
                             <td className="text-left" >
 
-                                <img src={props.img} className="img-thumbnail btn-warning" />
+                                <img src={props.img} className="img-thumbnail btn-warning" alt="game" />
                             </td>
                         </div>
                         <div className="container col-md-3">
@@ -40,11 +40,7 @@ const game = (props) => {
             </table>
 
         </div>
-
-
     )
-
-
 };
 
 export default game; 
