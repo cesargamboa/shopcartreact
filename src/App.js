@@ -1,17 +1,36 @@
 import React, { Component } from 'react';
 import Header from './components/Header';
 import Cart from './components/Cart'
-
 import News from './pages/News'
 import Releases from './pages/Releases'
 import Items from './components/Items';
+import axios from 'axios'
 //import { Link } from 'react-router';
 import { Route, Switch } from 'react-router-dom'
 //import { connect } from 'react-redux';
-import objList from "./components/list"
+
 
 //container 
 class App extends Component {
+
+  constructor() {
+    super();
+    this.state = {
+      items: [],
+      count: 0,
+      price: 0,
+      newCart: [],
+      showCart: false
+    };
+    axios.get('http://localhost:8088/api/cartitems/')
+      .then(response => {
+        this.setState({
+          items: response.data
+        })
+         
+      })
+
+  }
   addCart = (price, game) => {
 
     let newCartCopy = [game + " "];
@@ -31,7 +50,7 @@ class App extends Component {
       newCart: [],
     })
   }
-  state = objList;
+
   toggleCart = () => {
     const doesShow = this.state.showCart;
     this.setState({ showCart: !doesShow });
@@ -51,13 +70,13 @@ class App extends Component {
 
       <div>
 
-        {this.state.items.map((items, key) => {
+        {this.state.items.map((items, id) => {
           return <Items
 
             game={items.game}
             price={items.price}
             img={items.img}
-            key={items.key}
+            id={items.id}
             changed={this.addCart} />
 
         })}
